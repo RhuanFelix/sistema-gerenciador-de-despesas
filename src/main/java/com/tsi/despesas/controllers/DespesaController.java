@@ -1,47 +1,54 @@
 package com.tsi.despesas.controllers;
 
-import com.tsi.despesas.models.despesa.Despesa;
+import com.tsi.despesas.models.despesa.DespesaRequestDTO;
+import com.tsi.despesas.models.despesa.DespesaResponseDTO;
 import com.tsi.despesas.services.DespesaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/despesa")
-
+@Tag(name = "Despesa")
 public class DespesaController {
-    @Autowired
-    private DespesaService despesaService;
+    private final DespesaService despesaService;
 
-    @GetMapping("/{id}")
-    public List<Despesa> consultarDespesasPorCategoria(@PathVariable String categoriaId) {
-        return despesaService.consultarDespesasPorCategoria(categoriaId);
+    @GetMapping("/categoria/{id}")
+    @Operation(summary = "Listar usuários por categoria", description = "Retorna todos os usuários da categoria especificada")
+    public ResponseEntity<List<DespesaResponseDTO>> consultarDespesasPorCategoria(@PathVariable("id") String categoriaId) {
+        return ResponseEntity.ok(despesaService.consultarDespesasPorCategoria(categoriaId));
     }
 
     @GetMapping("/{id}")
-    public Despesa consultarDespesaPorId(@PathVariable String id) {
-        return despesaService.consultarDespesaPorId(id);
+    public ResponseEntity<DespesaResponseDTO> consultarDespesaPorId(@PathVariable String id) {
+        return ResponseEntity.ok(despesaService.consultarDespesaPorId(id));
     }
 
     @GetMapping
-    public List<Despesa> consultarTodasAsDespesas() {
-        return despesaService.consultarTodasAsDespesas();
+    public ResponseEntity<List<DespesaResponseDTO>> consultarTodasAsDespesas() {
+        return ResponseEntity.ok(despesaService.consultarTodasAsDespesas());
     }
 
     @PostMapping
-    public Despesa criarDespesa(@RequestBody Despesa despesa) {
-        return despesaService.criar(despesa);
+    public ResponseEntity<DespesaResponseDTO> criarDespesa(@RequestBody DespesaRequestDTO despesa) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(despesaService.criar(despesa));
     }
 
     @PutMapping("/{id}")
-    public Despesa atualizarDespesa(@PathVariable String id, @RequestBody Despesa despesa) {
-        return despesaService.atualizar(id, despesa);
+    public ResponseEntity<DespesaResponseDTO> atualizarDespesa(@PathVariable String id, @RequestBody DespesaRequestDTO despesa) {
+        return ResponseEntity.ok(despesaService.atualizar(id, despesa));
     }
 
     @DeleteMapping("/{id}")
-    public void deletarDespesa(@PathVariable String id) {
+    public ResponseEntity<Void> deletarDespesa(@PathVariable String id) {
         despesaService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

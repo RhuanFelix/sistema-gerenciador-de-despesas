@@ -17,17 +17,20 @@ public class OpenAPIConfig {
                                 
                                 ## Funcionalidades
                                 
-                                Descrever funcionalidades.
+                                O gerenciador de despesas pessoais possui como funcionalidade:
+                                
+                                - Criar, atualizar, consultar (listando todas ou por id) e deletar categorias;
+                                - Criar, atualizar, consultar (listando todas, ou por id ou listando de uma categoria) e deletar despesas.
                                 
                                 ## Tecnologias utilizadas
                                 
                                 - Spring Boot
-                                - Spring Web;
+                                - Spring Web
                                 - Spring Doc OpenAPI
-                                - Validation
                                 - Ektorp (CouchDB)
                                 - HTTP Client
                                 - Lombok
+                                - Jackson Datatype: JSR310
                                 """));
     }
 }
