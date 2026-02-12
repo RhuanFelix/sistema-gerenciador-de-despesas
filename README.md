@@ -21,6 +21,14 @@ O gerenciador de despesas pessoais possui como funcionalidade:
 - Lombok
 - Jackson Datatype: JSR310
 
+## Pré-requisitos
+
+É preciso que você tenha instalado no seu computador:
+
+- Java 21;
+- Maven;
+- CouchDB;
+
 ## Instalação do CouchDB
 
 O CouchDB é um SGBD multiplataforma, então você pode consultar a [documentação do CouchDB](https://docs.couchdb.org/en/stable/install/index.html) e escolher o guia de instalação do sistema operacional que você usa.
@@ -54,6 +62,12 @@ Após estar logado com sua conta "admin", você clica no ícone simbolizando um 
 ## Atualizando o application.properties
 
 No arquivo [application.properties](./src/main/resources/application.properties), você deve substituir os valores seu_usuario e sua_senha por "admin" e sua senha que você definiu durante a instalação, respectivamente; ou inserir seu usuário e senha que você criou pelo Fauxton.
+
+## Executando o projeto
+
+Você pode executar o projeto de duas formas:
+- **Terminal**: digite o comando ```mvn spring-boot:run```;
+- **IDE**: na sua IDE, vá para a classe [DespesasApplication.java](./src/main/java/com/tsi/despesas/DespesasApplication.java) e clique no botão de executar.
 
 ## Arquitetura do Projeto
 
