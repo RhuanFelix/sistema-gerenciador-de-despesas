@@ -15,6 +15,8 @@ public class OpenAPIConfig {
                         .description("""
                                 Este projeto faz parte de um seminário da disciplina de Banco de Dados II. Possui o objetivo de criar uma API Rest com Spring Boot utilizando o banco de dados não relacional: Apache CouchDB.
                                 
+                                O sistema possui duas entidades: categoria e despesa.
+                                
                                 ## Funcionalidades
                                 
                                 O gerenciador de despesas pessoais possui como funcionalidade:

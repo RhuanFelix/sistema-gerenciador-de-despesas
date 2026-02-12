@@ -20,7 +20,7 @@ public class DespesaController {
     private final DespesaService despesaService;
 
     @GetMapping("/categoria/{id}")
-    @Operation(summary = "Listar usuários por categoria", description = "Retorna todos os usuários da categoria especificada")
+    @Operation(summary = "Listar despesas por categoria", description = "Retorna todos as despesas da categoria especificada")
     public ResponseEntity<List<DespesaResponseDTO>> consultarDespesasPorCategoria(@PathVariable("id") String categoriaId) {
         return ResponseEntity.ok(despesaService.consultarDespesasPorCategoria(categoriaId));
     }

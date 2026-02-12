@@ -10,6 +10,7 @@ import org.ektorp.impl.StdCouchDbConnector;
 import org.ektorp.impl.StdCouchDbInstance;
 import org.ektorp.impl.ObjectMapperFactory;
 import org.jspecify.annotations.NonNull;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,12 +18,18 @@ import java.net.MalformedURLException;
 
 @Configuration
 public class CouchDBConfig {
+    @Value("${couchdb.url}")
+    private String url;
+    @Value("${couchdb.username}")
+    private String nomeUsuario;
+    @Value("${couchdb.password}")
+    private String senha;
 
     private CouchDbConnector createConnector(String dbName) throws MalformedURLException {
         HttpClient httpClient = new StdHttpClient.Builder()
-                .url("http://localhost:5984")
-                .username("rhuan")
-                .password("couchdev2026!")
+                .url(url)
+                .username(nomeUsuario)
+                .password(senha)
                 .build();
 
         CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
