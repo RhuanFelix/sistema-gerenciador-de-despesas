@@ -1,6 +1,6 @@
 # Gerenciador de Despesas Pessoais
 
-Este projeto faz parte de um seminário da disciplina de Banco de Dados II. Possui o objetivo de criar uma API Rest com Spring Boot utilizando o banco de dados não relacional: Apache CouchDB.
+Este projeto faz parte de um seminário da disciplina de Banco de Dados II. Possui o objetivo de criar uma API Rest com Spring Boot utilizando o banco de dados não relacional: Apache CouchDB. Além disso, este projeto também tem o objetivo de praticar o Rate Limiter para limitar a quantidade de requisições que o cliente (usuário) pode fazer.
 
 O sistema possui duas entidades: categoria e despesa.
 
@@ -20,6 +20,7 @@ O gerenciador de despesas pessoais possui como funcionalidade:
 - HTTP Client
 - Lombok
 - Jackson Datatype: JSR310
+- Resilience4J (Rate Limiter)
 
 ## Pré-requisitos
 
