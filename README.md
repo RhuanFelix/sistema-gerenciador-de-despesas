@@ -72,6 +72,8 @@ Você pode executar o projeto de duas formas:
 
 ## Arquitetura do Projeto
 
+O projeto segue uma arquitetura em camadas, garantindo a separação de responsabilidades e facilitando a manutenção do código.
+
 ```
 src/
 └── main/
