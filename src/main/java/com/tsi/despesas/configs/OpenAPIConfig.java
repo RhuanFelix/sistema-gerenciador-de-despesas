@@ -33,6 +33,7 @@ public class OpenAPIConfig {
                                 - HTTP Client
                                 - Lombok
                                 - Jackson Datatype: JSR310
+                                - Resilience4J (Rate Limiter)
                                 """));
     }
 }
